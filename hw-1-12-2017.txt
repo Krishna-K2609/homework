@@ -5,5 +5,9 @@ Relative Path Resolution
 4. ls ../backup will display the repositories under /backup, namely original, pnas_final and pnas_sub
 
 ls Reading Comprehension
-4. Commands 2 (ls -r -F and ls -r -F /Users/backup) would display pnas_sub/ pnas_final and original/
+4. Commands 2 and 3 (ls -r -F and ls -r -F /Users/backup) would display pnas_sub/ pnas_final and original/
+
+Exploring More ls Arguments
+When used with the command -l, ls displays a 'long-listing format' of the files in the repository, which includes information about the file and directory names as well as file size.
+The command ls -h displays 'human readable' file size information in kilobytes, megabytes, etc.
 
