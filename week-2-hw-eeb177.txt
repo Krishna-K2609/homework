@@ -49,3 +49,6 @@ QUESTION 3.
   743  echo 'aaaaabbbb' | tr -d a
   744  echo 'aaaaabbbb' | tr -s a
   745  history 8 >> ~/Desktop/eeb177/homework/week-2-hw-eeb177.txt 
+  753  tail -n +2 Pacifici2013_data.csv | cut -d ";" -f 2-6 | tr ";" " " | sort -r -n -k 6 > BodyM.csv
+  754  tail -n +2 Pacifici2013_data.csv | cut -d ";" -f 2-6 | tr ";" " " | sort -r -n -k 6 
+  755  history 3 >> ~/Desktop/eeb177/homework/week-2-hw-eeb177.txt 
