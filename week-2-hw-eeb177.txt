@@ -1,0 +1,41 @@
+QUESTION 1.
+Using the command
+cut -d ";" -f 2  Pacifici2013_data.csv | head -n 6 | tail -n +2 >> ~/Desktop/eeb177/homework/week-2-hw-eeb177.txt 
+these are the Orders of the first five species in the dataset.
+
+Rodentia
+Rodentia
+Rodentia
+Macroscelidea
+Rodentia
+
+QUESTION 2.
+cut -d ";" -f 3 Pacifici2013_data.csv | sort -h | uniq -u | wc -l
+
+There are 25 unique families.
+
+Ailuridae
+Antilocapridae
+Aplodontiidae
+Craseonycteridae
+Cyclopedidae
+Daubentoniidae
+Diatomyidae
+Dinomyidae
+Dugongidae
+Eschrichtiidae
+Hypsiprymnodontidae
+Microbiotheriidae
+Myocastoridae
+Myrmecobiidae
+Nandiniidae
+Neobalaenidae
+Odobenidae
+Ornithorhynchidae
+Orycteropodidae
+Petromuridae
+Phascolarctidae
+Platanistidae
+Ptilocercidae
+Tarsipedidae
+Thylacomyidae
