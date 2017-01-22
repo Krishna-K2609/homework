@@ -10,7 +10,7 @@ Macroscelidea
 Rodentia
 
 QUESTION 2.
-cut -d ";" -f 3 Pacifici2013_data.csv | sort -d | tail -n+2 | uniq | wc -l
+cut -d ";" -f 3 Pacifici2013_data.csv | tail -n+2  | sort -d | uniq | wc -l
 
 There are 152 unique families.
 
