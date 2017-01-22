@@ -10,35 +10,162 @@ Macroscelidea
 Rodentia
 
 QUESTION 2.
-cut -d ";" -f 3 Pacifici2013_data.csv | sort -h | uniq -u | wc -l
+cut -d ";" -f 3 Pacifici2013_data.csv | sort -d | tail -n+2 | uniq | wc -l
 
-There are 25 unique families.
+There are 152 unique families.
 
+Abrocomidae
+Acrobatidae
 Ailuridae
+Anomaluridae
 Antilocapridae
+Aotidae
 Aplodontiidae
+Atelidae
+Balaenidae
+Balaenopteridae
+Bathyergidae
+Bovidae
+Bradypodidae
+Burramyidae
+Caenolestidae
+Callitrichidae
+Calomyscidae
+Camelidae
+Canidae
+Capromyidae
+Castoridae
+Caviidae
+Cebidae
+Cercopithecidae
+Cervidae
+Cheirogaleidae
+Chinchillidae
+Chrysochloridae
 Craseonycteridae
+Cricetidae
+Ctenodactylidae
+Ctenomyidae
+Cuniculidae
 Cyclopedidae
+Cynocephalidae
+Dasypodidae
+Dasyproctidae
+Dasyuridae
 Daubentoniidae
+Delphinidae
 Diatomyidae
+Didelphidae
 Dinomyidae
+Dipodidae
 Dugongidae
+Echimydae
+Echimyidae
+Elephantidae
+Emballonuridae
+Equidae
+Erethizontidae
+Erinaceidae
 Eschrichtiidae
+Eupleridae
+Felidae
+Furipteridae
+Galagidae
+Geomyidae
+Giraffidae
+Gliridae
+Herpestidae
+Heteromyidae
+Hippopotamidae
+Hipposideridae
+Hominidae
+Hyaenidae
+Hylobatidae
 Hypsiprymnodontidae
+Hystricidae
+Indriidae
+Iniidae
+Lemuridae
+Lepilemuridae
+Leporidae
+Lorisidae
+Macropodidae
+Macroscelididae
+Manidae
+Megadermatidae
+Megalonychidae
+Mephitidae
 Microbiotheriidae
+Molossidae
+Monodontidae
+Mormoopidae
+Moschidae
+Muridae
+Mustelidae
 Myocastoridae
 Myrmecobiidae
+Myrmecophagidae
+Mystacinidae
+Myzopodidae
 Nandiniidae
+Natalidae
 Neobalaenidae
+Nesomyidae
+Noctilionidae
+Notoryctidae
+Nycteridae
+Ochotonidae
+Octodontidae
 Odobenidae
 Ornithorhynchidae
 Orycteropodidae
+Otariidae
+Pedetidae
+Peramelidae
+Petauridae
 Petromuridae
+Phalangeridae
 Phascolarctidae
+Phocidae
+Phocoenidae
+Phyllostomidae
+Physeteridae
+Pitheciidae
+Platacanthomyidae
 Platanistidae
+Potoroidae
+Prionodontidae
+Procaviidae
+Procyonidae
+Pseudocheiridae
+Pteropodidae
 Ptilocercidae
+Rhinocerotidae
+Rhinolophidae
+Rhinopomatidae
+Sciuridae
+Solenodontidae
+Soricidae
+Spalacidae
+Suidae
+Tachyglossidae
+Talpidae
+Tapiridae
+Tarsiidae
 Tarsipedidae
+Tayassuidae
+Tenrecidae
+Thryonomyidae
 Thylacomyidae
+Thyropteridae
+Tragulidae
+Trichechidae
+Tupaiidae
+Ursidae
+Vespertilionidae
+Viverridae
+Vombatidae
+Ziphiidae
 
 QUESTION 3.
   738  echo 'aaabbb' | tr 'a' 'b'
@@ -49,6 +176,15 @@ QUESTION 3.
   743  echo 'aaaaabbbb' | tr -d a
   744  echo 'aaaaabbbb' | tr -s a
   745  history 8 >> ~/Desktop/eeb177/homework/week-2-hw-eeb177.txt 
+
   753  tail -n +2 Pacifici2013_data.csv | cut -d ";" -f 2-6 | tr ";" " " | sort -r -n -k 6 > BodyM.csv
   754  tail -n +2 Pacifici2013_data.csv | cut -d ";" -f 2-6 | tr ";" " " | sort -r -n -k 6 
   755  history 3 >> ~/Desktop/eeb177/homework/week-2-hw-eeb177.txt 
+
+QUESTION 4.
+Using head and tail commands.
+The 10th smallest species is Pipistrellus nanulus.
+The 10th largest species is Macaca munzala.
+
+QUESTION 5.
+
