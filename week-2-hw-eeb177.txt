@@ -214,3 +214,30 @@ QUESTION 7.
   963 for datafile in *.txt; do cp $datafile ~/Desktop/eeb177/CSB/unix/sandbox/temp/edited-$filename; done
   974  history 2 >> ~/Desktop/eeb177/homework/week-2-hw-eeb177.txt 
 
+QUESTION 8.
+Using grep
+Only command 3 (grep -w "of" haiku.txt) will result in the expected output. 
+Commands 1, 2 and 4 would also result in the line "Software is like that" being presented.
+
+find Pipeline Reading Comprehension
+wc -l $(find . -name '*.dat') | sort -n will count the lines of all the .dat files in or below the current directory.
+The output will list all .dat files in or below the current directory followed by the total number of lines in these files.
+
+Matching and Subtracting
+Only command 1 will find the desired output.
+
+Tracking a Species
+grep -w $1 -r $2 | cut -d "," -f 1,3 > $1.txt will provide the desired output
+
+cut -d ":" -f 2 cannot be used because ":" is not the right delimiter and it would return only the second column.
+
+Little Women
+Assuming LittleWomen.txt is in our current directory and that there is no other .txt file:
+for textfile in *.txt; do grep -o "Jo" LIttleWomen.txt | wc -l; grep -o "Meg" LIttleWomen.txt | wc -l; grep -o "Beth" LIttleWomen.txt | wc -l; grep -o "Amy" LIttleWomen.txt | wc -l;done
+
+Finding Files with Different Properties
+$ find ./ -type f -mtime -1 -user ahmed
+
+
+
+
