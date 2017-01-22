@@ -233,7 +233,7 @@ cut -d ":" -f 2 cannot be used because ":" is not the right delimiter and it wou
 
 Little Women
 Assuming LittleWomen.txt is in our current directory and that there is no other .txt file:
-for textfile in *.txt; do grep -o "Jo" LIttleWomen.txt | wc -l; grep -o "Meg" LIttleWomen.txt | wc -l; grep -o "Beth" LIttleWomen.txt | wc -l; grep -o "Amy" LIttleWomen.txt | wc -l;done
+for textfile in *.txt; do grep -o "Jo" LittleWomen.txt | wc -l; grep -o "Meg" LittleWomen.txt | wc -l; grep -o "Beth" LittleWomen.txt | wc -l; grep -o "Amy" LittleWomen.txt | wc -l;done
 
 Finding Files with Different Properties
 $ find ./ -type f -mtime -1 -user ahmed
