@@ -197,3 +197,14 @@ QUESTION 5.
   900  cd ~/Desktop/eeb177/CSB/unix/
   901  grep -r "Gorilla" data/
   902  history 9 >> ~/Desktop/eeb177/homework/week-2-hw-eeb177.txt 
+
+QUESTION 6.
+1. cd ~/Desktop/eeb177/CSB/unix/sandbox
+2. 553KB (using ls -lh ../data/Marra2014_data.fasta)
+3. cp ../data/Marra2014_data.fasta my_file.fasta
+4. 16 (using grep -s isogroup00036  my_file.fasta)
+5. cat my_file.fasta | tr -s ' ' ','
+6. 43 (grep ">| my_file.fasta | cut -d "," -f 4 | sort -n | uniq | wc -l)
+7. contig00302 has 3,330 numreads (grep '">" my_file.fasta | cut -d "," -f 1,3 | sort -t "=" -k 2 -n -r | head -n 1
+
+QUESTION 7.
