@@ -183,8 +183,17 @@ QUESTION 3.
 
 QUESTION 4.
 Using head and tail commands.
+
+The 10th largest species is Eubalaena glacialis.
 The 10th smallest species is Pipistrellus nanulus.
-The 10th largest species is Macaca munzala.
 
 QUESTION 5.
-
+  894  grep -w Bos BodyM.csv
+  895  grep -i Bos BodyM.csv 
+  896  grep -B 2 -A 2 "Gorilla gorilla" BodyM.csv 
+  897  grep -n "Gorilla gorilla" BodyM.csv 
+  898  grep Gorilla BodyM.csv | grep -v gorilla
+  899  grep -w "Gorilla\|Pan" BodyM.csv 
+  900  cd ~/Desktop/eeb177/CSB/unix/
+  901  grep -r "Gorilla" data/
+  902  history 9 >> ~/Desktop/eeb177/homework/week-2-hw-eeb177.txt 
