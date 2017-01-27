@@ -228,6 +228,7 @@ Only command 1 will find the desired output.
 
 Tracking a Species
 grep -w $1 -r $2 | cut -d "," -f 1,3 > $1.txt will provide the desired output
+cut -d ":" -f 2 is irrelevant because ":" is not a delimiter in the files.
 
 Little Women
 for NAME in Amy Jo Meg Beth
