@@ -1,12 +1,12 @@
 QUESTION 1.
-1. The levels of individual 3 were measured 61 times [Command: cut -f 1 Gesquiere2011_data.csv | grep -c -w | wc -l] and the levels of individual 27 were measured 5 times [Command: cut -f 1 Gesquiere2011_data.csv | grep -c -w 27]
+1. The levels of individual 3 were measured 61 times [Command: cut -f 1 Gesquiere2011_data.csv | grep -c -w 3] and the levels of individual 27 were measured 5 times [Command: cut -f 1 Gesquiere2011_data.csv | grep -c -w 27]
 
-2. $FILE is file name and $ID is male_id
-cut -f 1 $FILE | grep -c -w $ID
+2. $ID is maleID
+cut -f 1 ~/Desktop/eeb177/CSB/unix/data/Guesquiere2011_data.csv | grep -c -w $ID
 
 save as id_records.sh
 
-3. using a for loop and previous script
+3. using a for loop and previous script (id_records.sh)
 ID='tail -n +2 Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq'
 for male_id in $ID
 do
@@ -15,4 +15,22 @@ do
 done
 
 QUESTION 2. 
-1. 
+1. echo "File:"
+echo $1
+echo "Number of rows:"
+cat $1 | wc -l
+echo "Number of columns:"
+head -n 1 $1 | tr -d ' ' | tr -d '\n' | wc -c
+
+2.FILES=~/Desktop/eeb177/CSB/unix/data/Saavedra2013/*.txt
+for file in $FILES 
+do
+    row=`cat $file | wc -l`
+    column=`head -n 1 $file | tr -d ' ' | tr -d '\n' | wc -c`
+    echo $file $row $column
+done
+
+3. n58.txt has 678 rows [Command: size_all.sh | sort -n -k 2 -r | head -n 1]
+   n56.txt has 207 columns [size_all.sh | sort -n -k 3 -r | head -n 1]
+
+QUESTION 3.
