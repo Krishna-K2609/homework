@@ -1,0 +1,18 @@
+QUESTION 1.
+1. The levels of individual 3 were measured 61 times [Command: cut -f 1 Gesquiere2011_data.csv | grep -c -w | wc -l] and the levels of individual 27 were measured 5 times [Command: cut -f 1 Gesquiere2011_data.csv | grep -c -w 27]
+
+2. $FILE is file name and $ID is male_id
+cut -f 1 $FILE | grep -c -w $ID
+
+save as id_records.sh
+
+3. using a for loop and previous script
+ID='tail -n +2 Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq'
+for male_id in $ID
+do
+    count='bash id_records.sh Gesquiere2011_data.csv $male_id'
+    echo "ID:" $male_id "counts:" $count
+done
+
+QUESTION 2. 
+1. 
