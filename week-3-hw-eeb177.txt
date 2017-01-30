@@ -10,7 +10,7 @@ save as id_records.sh
 ID='tail -n +2 Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq'
 for male_id in $ID
 do
-    count='bash id_records.sh Gesquiere2011_data.csv $male_id'
+    count=`bash id_records.sh Gesquiere2011_data.csv $male_id`
     echo "ID:" $male_id "counts:" $count
 done
 
