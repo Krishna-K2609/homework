@@ -33,4 +33,3 @@ done
 3. n58.txt has 678 rows [Command: size_all.sh | sort -n -k 2 -r | head -n 1]
    n56.txt has 207 columns [size_all.sh | sort -n -k 3 -r | head -n 1]
 
-QUESTION 3.
