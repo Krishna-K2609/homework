@@ -1,0 +1,71 @@
+---
+title: "week-8-hw-eeb177"
+author: "Krishna Krishnamurthy"
+date: "March 4, 2017"
+output: md_document
+---
+
+## Exercise 1: Exploring Data Frames
+
+```{r}
+# Adding rows and colums
+# First we read in the data file we created for the class challenge
+
+cats <- read.csv("/home/eeb177-student/Desktop/eeb177/class-assignments/data/feline-data.csv")
+cats
+
+# We want to add ages
+age <- c(4,5,8)
+cats <- cbind(cats,age)
+cats
+
+# Adding a new row
+newRow <-list("tortoiseshell", 3.3, TRUE, 9)
+cats <- rbind(cats, newRow)
+# produces a NA value
+
+levels(cats$coat) <- c(levels(cats$coat), "tortoiseshell")
+# adding a new factor, otherwise R won't add the new row
+cats <- rbind(cats, list("tortoiseshell", 3.3, TRUE, 9))
+cats
+
+# Removing rows
+cats[-4,]
+# we can also use the na.omit function
+cats <- na.omit(cats)
+
+# Appending data frame
+cats <- rbind(cats, cats)
+cats
+# generates complicated row names
+
+rownames(cats) <- NULL
+cats
+# simplifies the row names
+```
+
+```{r}
+# Challenge 1
+df <- data.frame(first = c('Krishna'), last = ("Krishnamurthy"), lucky_number = c(0), stringsAsFactors = FALSE)
+df <- rbind(df, list("Irina", "Bird", 14))
+df <- cbind(df, coffeetime = c(FALSE, TRUE))
+df
+
+# Challenge 2
+source(file = "scripts/load-gapminder.R")
+
+#script is:
+download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
+gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
+
+# Challenge 3
+str(gapminder)
+# gapminder is a data frame with 6 columns, and 1704 observations. County and continent are factors; year is an integer value, pop, lifeExp and gdpPercap are all numeric vectors
+```
+
+
+## Exercise 2: Subsetting Data
+
+
+## Exercise 3: Creating Publication Quality Graphics
+
