@@ -5,6 +5,66 @@ date: "March 4, 2017"
 output: md_document
 ---
 
+## Canids continued; Mapping stratigraphic records
+
+```{r}
+library("ggplot2")
+canids <- read.csv("/home/eeb177-student/Desktop/eeb177/homework/sorted-canid-ranges.csv", header = F, as.is = T)
+names(canids) <- c("genus", "species", "minage", "maxage")
+head(canids)
+
+canid_occ <- ggplot(canids, aes( species, ymin = maxage, ymax=minage, colour = genus))# plot data
+canid_occ <- canid_occ + geom_linerange() # draw ranges
+canid_occ <- canid_occ + theme(legend.position="none") # remove legend
+canid_occ <- canid_occ + coord_flip() # flip labels
+canid_occ <- canid_occ +  theme(axis.text.y = element_text(size=3)) # make species names smaller
+canid_occ <- canid_occ + theme(axis.ticks.y=element_blank()) # remove tick marks
+canid_occ <- canid_occ + scale_y_continuous(limits=c(0, 40), expand = c(0, 0), breaks=c(0, 10, 20, 30, 40)) # reduce empty space
+canid_occ <- canid_occ + labs(title = "Canid Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20)) #adding title and modifying axes
+canid_occ
+ggsave(filename = "canid-occ.pdf", plot = canid_occ) # saving file in pdf format
+```
+
+## A report on canid fossil records
+The figure shows the fossil records for canids. There are 211 unique species records and 206 unique genera. *Cynodictis lacustris* has the longest fossil range (35.55 Ma)
+
+```{r}
+library("ggplot2")
+felines <- read.csv("/home/eeb177-student/Desktop/eeb177/homework/feline-ranges.csv", header = F, as.is = T)
+names(felines) <- c("genus", "species", "minage", "maxage")
+head(felines)
+
+feline_occ <- ggplot(felines, aes( species, ymin = maxage, ymax=minage, colour = genus))# plot data
+feline_occ <- canid_occ + geom_linerange() # draw ranges
+feline_occ <- canid_occ + theme(legend.position="none") # remove legend
+feline_occ <- canid_occ + coord_flip() # flip labels
+feline_occ <- canid_occ +  theme(axis.text.y = element_text(size=3)) # make species names smaller
+feline_occ <- canid_occ + theme(axis.ticks.y=element_blank()) # remove tick marks
+feline_occ <- canid_occ + scale_y_continuous(limits=c(0, 40), expand = c(0, 0), breaks=c(0, 10, 20, 30, 40)) # reduce empty space
+feline_occ <- canid_occ + labs(title = "Feline Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20)) #adding title and modifying axes
+feline_occ
+ggsave(filename = "feline-occ.pdf", plot = feline_occ) # saving file in pdf format
+```
+
+## A report on feline fossil records
+The figure shows the fossil records for felines. There are 139 unique species records and 34 unique genera. Cynodictis lacustris has the longest fossil range (35.55 Ma). *Miracinonyx inexpectatus* has the longest fossil range (13.28 Ma)
+
+```{r}
+library("paleotree")
+data(graptPBDB)
+head(graptOccPBDB)
+#get formal genera
+occSpecies<-taxonSortPBDBocc(graptOccPBDB, rank="species")
+#plot it!
+plotOccData(occSpecies)
+occGenus<-taxonSortPBDBocc(graptOccPBDB, rank="genus")
+#plot it!
+plotOccData(occGenus)
+#taxicDivDisc with the retiolinae dataset
+data(retiolitinae)
+taxicDivDisc(retioRanges)
+```
+
 ## Exercise 1: Exploring Data Frames
 
 ```{r}
