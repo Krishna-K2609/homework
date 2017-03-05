@@ -155,3 +155,72 @@ gapminder_small <- gapminder[c(1:9, 19:23),] # gives rows 1 through 9 and 19 thr
 
 ## Exercise 3: Creating Publication Quality Graphics
 
+```{r}
+library("ggplot2")
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()
+# scatterplot
+
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line()
+#line chart
+
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line() + geom_point()
+#line chart with points
+
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+  geom_line(aes(color=continent)) + geom_point()
+# color only applies to line, not points
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) + scale_x_log10()
+# log transformation
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() + scale_x_log10() + geom_smooth(method="lm")
+# chart with "best fit" line
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+# making a thicker line
+
+starts.with <- substr(gapminder$country, start = 1, stop = 1)
+az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country)
+# using faceting for individual country charts
+
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  xlab("Year") + ylab("Life expectancy") + ggtitle("Figure 1") +
+  scale_colour_discrete(name="Continent") +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+# modifying text
+
+# Challenge 1
+ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
+
+# Challenge 2
+ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
+  geom_point()
+
+# Challenge 3
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+ geom_point() + geom_line(aes(color=continent)) # point appears under the line
+
+# Challenge 4a
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+ geom_point(size=3, color="red") + scale_x_log10() +
+ geom_smooth(method="lm", size=1.5)
+
+# Challenge 4b
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color = continent)) +
+geom_point(size=3, pch=17) + scale_x_log10() +
+geom_smooth(method="lm", size=1.5)
+
+# Challenge 5
+ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
+ geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
+```
+
