@@ -66,6 +66,92 @@ str(gapminder)
 
 ## Exercise 2: Subsetting Data
 
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+x
+
+# accessing indices
+x[1]
+x[4]
+
+# multiple indices at once and multiple times
+x[c(1,3)]
+x[c(1,1,3,1)]
+
+# slices
+x[1:4]
+
+x[6] # does not exist in this list; hence we get a NA
+x[0] # never exists
+
+# returning all values except one
+x[-2]
+x[-(1:3)] # exclude elements 1 through 3
+x <- x[-4]
+x
+```
+
+```{r}
+# Challenge 1
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+
+x[2:4]
+x[-c(1,5)]
+x[c(2,3,4)]
+
+# Challenge 2
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+x[-which(names(x) == "g")]
+# A and C are correct;names(x) == "g" does not return any true values because there were none passed to the command. 
+
+# Challenge 3
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+x_subset <- x[x<7 & x>4]
+print(x_subset)
+
+# Challenge 4
+m <- matrix(1:18, nrow=3, ncol=6)
+print(m)
+m[2,c(4,5)] # this extracts 11 and 14
+
+# Challenge 5
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+# we can extract 2 from xlist with the following commands
+xlist$b[2]
+xlist[[2]][2]
+xlist[["b"]][2]
+
+# Challenge 6
+mod <- aov(pop ~ lifeExp, data=gapminder)
+attributes(mod)
+mod$df.residual
+
+# Challenge 7
+# fixing errors
+# gapminder[gapminder$year = 1957,]
+gapminder[gapminder$year == 1957,]
+# gapminder[,-1:4]
+gapminder[,-c(1:4)]
+# gapminder[gapminder$lifeExp > 80]
+gapminder[gapminder$lifeExp > 80,]
+# gapminder[1, 4, 5]
+gapminder[1, c(4, 5)]
+# gapminder[gapminder$year == 2002 | 2007,]
+gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
+gapminder[gapminder$year %in% c(2002, 2007),]
+
+# Challenge 8
+# 1. gapminder is a dataframe and needs two columns. gapminder[1:20, ] is a subset with the first 20 rows and all columns
+gapminder_small <- gapminder[c(1:9, 19:23),] # gives rows 1 through 9 and 19 through 23
+```
+
 
 ## Exercise 3: Creating Publication Quality Graphics
 
