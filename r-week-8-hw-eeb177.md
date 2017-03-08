@@ -6,13 +6,13 @@ Canids continued; Mapping stratigraphic records
     names(canids) <- c("genus", "species", "minage", "maxage")
     head(canids)
 
-    ##       genus                species  minage  maxage
-    ## 1 Aelurodon     Aelurodon taxoides  7.6000 14.1815
-    ## 2 Aelurodon     Aelurodon stirtoni 11.9500 14.7850
-    ## 3 Aelurodon  Aelurodon montanensis 14.7850 14.7850
-    ## 4 Aelurodon Aelurodon wheelerianus 18.2000 18.2000
-    ## 5 Aelurodon              Aelurodon  8.4705 14.7850
-    ## 6 Aelurodon      Aelurodon mcgrewi 14.1815 14.7850
+    ##       genus                 species   minage  maxage
+    ## 1 Aelurodon      Aelurodon stirtoni 11.95000 14.7850
+    ## 2 Aelurodon   Aelurodon montanensis  0.06885 14.7850
+    ## 3 Aelurodon  Aelurodon wheelerianus 18.20000 25.6150
+    ## 4 Aelurodon Aelurodon asthenostylus 14.78500 18.2000
+    ## 5 Aelurodon      Aelurodon taxoides  7.60000 14.1815
+    ## 6 Aelurodon         Aelurodon ferox  9.25000 14.7850
 
     canid_occ <- ggplot(canids, aes( species, ymin = maxage, ymax=minage, colour = genus))# plot data
     canid_occ <- canid_occ + geom_linerange() # draw ranges
@@ -24,7 +24,7 @@ Canids continued; Mapping stratigraphic records
     canid_occ <- canid_occ + labs(title = "Canid Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20)) #adding title and modifying axes
     canid_occ
 
-    ## Warning: Removed 4 rows containing missing values (geom_linerange).
+    ## Warning: Removed 5 rows containing missing values (geom_linerange).
 
 ![](r-week-8-hw-eeb177_files/figure-markdown_strict/unnamed-chunk-1-1.png)
 
@@ -32,14 +32,14 @@ Canids continued; Mapping stratigraphic records
 
     ## Saving 7 x 5 in image
 
-    ## Warning: Removed 4 rows containing missing values (geom_linerange).
+    ## Warning: Removed 5 rows containing missing values (geom_linerange).
 
 A report on canid fossil records
 --------------------------------
 
 The figure shows the fossil records for canids. There are 211 unique
-species records and 206 unique genera. *Cynodictis lacustris* has the
-longest fossil range (35.55 Ma)
+species records and 206 unique genera. *Vulpes vulpes* has the longest
+fossil range (42.89415 Ma)
 
     library("ggplot2")
     felines <- read.csv("/home/eeb177-student/Desktop/eeb177/homework/feline-ranges.csv", header = F, as.is = T)
@@ -55,28 +55,20 @@ longest fossil range (35.55 Ma)
     ## 6      Felis   Felis domesticus 0.06885 0.06885
 
     feline_occ <- ggplot(felines, aes( species, ymin = maxage, ymax=minage, colour = genus))# plot data
-    feline_occ <- canid_occ + geom_linerange() # draw ranges
-    feline_occ <- canid_occ + theme(legend.position="none") # remove legend
-    feline_occ <- canid_occ + coord_flip() # flip labels
-    feline_occ <- canid_occ +  theme(axis.text.y = element_text(size=3)) # make species names smaller
-    feline_occ <- canid_occ + theme(axis.ticks.y=element_blank()) # remove tick marks
-    feline_occ <- canid_occ + scale_y_continuous(limits=c(0, 40), expand = c(0, 0), breaks=c(0, 10, 20, 30, 40)) # reduce empty space
-
-    ## Scale for 'y' is already present. Adding another scale for 'y', which
-    ## will replace the existing scale.
-
-    feline_occ <- canid_occ + labs(title = "Feline Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20)) #adding title and modifying axes
+    feline_occ <- feline_occ + geom_linerange() # draw ranges
+    feline_occ <- feline_occ + theme(legend.position="none") # remove legend
+    feline_occ <- feline_occ + coord_flip() # flip labels
+    feline_occ <- feline_occ +  theme(axis.text.y = element_text(size=3)) # make species names smaller
+    feline_occ <- feline_occ + theme(axis.ticks.y=element_blank()) # remove tick marks
+    feline_occ <- feline_occ + scale_y_continuous(limits=c(0, 40), expand = c(0, 0), breaks=c(0, 10, 20, 30, 40)) # reduce empty space
+    feline_occ <- feline_occ + labs(title = "Feline Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20)) #adding title and modifying axes
     feline_occ
-
-    ## Warning: Removed 4 rows containing missing values (geom_linerange).
 
 ![](r-week-8-hw-eeb177_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
     ggsave(filename = "feline-occ.pdf", plot = feline_occ) # saving file in pdf format
 
     ## Saving 7 x 5 in image
-
-    ## Warning: Removed 4 rows containing missing values (geom_linerange).
 
 A report on feline fossil records
 ---------------------------------
